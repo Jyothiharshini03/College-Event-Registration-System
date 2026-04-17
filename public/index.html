@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pragati Engineering College - Event Registration System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <h1>🎓 Pragati Engineering College</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#events" class="nav-link">Events</a></li>
+                <li><a href="#register" class="nav-link">Register</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-group">
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#" class="nav-link admin-link" onclick="openAdminLogin(event)">Admin</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Join Pragati Engineering College Events</h1>
+            <p>Discover, Learn, and Network with Industry Experts</p>
+            <button class="btn btn-primary" onclick="scrollToSection('events')">Explore Events</button>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="section-header">
+            <h2>Upcoming Events</h2>
+            <p>Choose from our exciting lineup of technical workshops and seminars</p>
+        </div>
+        <div class="events-grid" id="eventsGrid">
+            <!-- Events will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section id="register" class="register-section">
+        <div class="section-header">
+            <h2>Register for an Event</h2>
+            <p>Fill out the form below to secure your spot</p>
+        </div>
+        
+        <div class="register-container">
+            <form id="registrationForm" class="registration-form">
+                <div class="form-group">
+                    <label for="eventSelect">Select Event *</label>
+                    <select id="eventSelect" name="event" required>
+                        <option value="">-- Choose an Event --</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="rollNo">Roll Number *</label>
+                        <input type="text" id="rollNo" name="rollNo" placeholder="PE2024001" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department *</label>
+                        <select id="department" name="department" required>
+                            <option value="">-- Select Department --</option>
+                            <option value="CSE">Computer Science & Engineering</option>
+                            <option value="ECE">Electronics & Communication Engineering</option>
+                            <option value="ME">Mechanical Engineering</option>
+                            <option value="CE">Civil Engineering</option>
+                            <option value="EE">Electrical Engineering</option>
+                            <option value="IT">Information Technology</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="semester">Semester *</label>
+                    <input type="number" id="semester" name="semester" placeholder="4" min="1" max="8" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Additional Message</label>
+                    <textarea id="message" name="message" placeholder="Any special requirements or questions..." rows="4"></textarea>
+                </div>
+
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the terms and conditions *</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">Register Now</button>
+            </form>
+
+            <!-- Summary Card -->
+            <div class="registration-summary">
+                <h3>Registration Summary</h3>
+                <div id="summaryContent" class="summary-content">
+                    <p>Select an event to see details</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-header">
+            <h2>About Our Events</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="about-icon">🎯</div>
+                <h3>Industry Exposure</h3>
+                <p>Get insights directly from industry experts and leaders in the field of technology.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">💡</div>
+                <h3>Skill Development</h3>
+                <p>Enhance your technical skills through hands-on workshops and practical training sessions.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">🤝</div>
+                <h3>Networking</h3>
+                <p>Build meaningful connections with peers, professionals, and potential employers.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">📜</div>
+                <h3>Certification</h3>
+                <p>Earn certificates of participation recognized by leading industry bodies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2>Get in Touch</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>📍 Location</h3>
+                <p>Pragati Engineering College<br>Hyderabad, Telangana</p>
+            </div>
+            <div class="contact-card">
+                <h3>📧 Email</h3>
+                <p><a href="mailto:events@pragati.edu.in">events@pragati.edu.in</a></p>
+            </div>
+            <div class="contact-card">
+                <h3>📱 Phone</h3>
+                <p><a href="tel:+914040222222">+91 40 4022 2222</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Pragati Engineering College. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">Facebook</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel hidden">
+        <div class="admin-header">
+            <h2>Admin Dashboard</h2>
+            <button class="btn-close" onclick="closeAdminPanel()">×</button>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="admin-tab-btn active" onclick="switchAdminTab('events')">Events Management</button>
+            <button class="admin-tab-btn" onclick="switchAdminTab('registrations')">View Registrations</button>
+            <button class="admin-tab-btn" onclick="switchAdminTab('analytics')">Analytics</button>
+        </div>
+
+        <!-- Events Management Tab -->
+        <div id="eventsTab" class="admin-tab-content active">
+            <h3>Manage Events</h3>
+            
+            <div class="add-event-form">
+                <h4>Add New Event</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adminEventName">Event Name</label>
+                        <input type="text" id="adminEventName" placeholder="Enter event name">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminEventDate">Date</label>
+                        <input type="text" id="adminEventDate" placeholder="e.g., 15 May 2024">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adminEventTime">Time</label>
+                        <input type="text" id="adminEventTime" placeholder="e.g., 10:00 AM - 4:00 PM">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminEventLocation">Location</label>
+                        <input type="text" id="adminEventLocation" placeholder="Enter location">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adminEventCapacity">Capacity</label>
+                        <input type="number" id="adminEventCapacity" placeholder="150" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminEventDescription">Description</label>
+                        <input type="text" id="adminEventDescription" placeholder="Brief description">
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="addNewEvent()">Add Event</button>
+            </div>
+
+            <h4 style="margin-top: 2rem;">All Events</h4>
+            <div id="adminEventsList" class="admin-events-list">
+                <!-- Events list will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Registrations Tab -->
+        <div id="registrationsTab" class="admin-tab-content">
+            <h3>Registered Members</h3>
+            
+            <div class="admin-controls">
+                <input type="text" id="registrationFilter" placeholder="Filter by event or name..." onkeyup="filterRegistrations()">
+                <button class="btn btn-primary" onclick="exportRegistrationsCSV()">Export as CSV</button>
+            </div>
+
+            <div id="registrationsList" class="registrations-list">
+                <!-- Registrations will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div id="analyticsTab" class="admin-tab-content">
+            <h3>Analytics</h3>
+            
+            <div class="analytics-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Events</div>
+                    <div class="stat-value" id="totalEventsCount">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Registrations</div>
+                    <div class="stat-value" id="totalRegistrationsCount">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Capacity</div>
+                    <div class="stat-value" id="totalCapacityCount">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Seats Filled</div>
+                    <div class="stat-value" id="seatsFilled">0%</div>
+                </div>
+            </div>
+
+            <h4>Event-wise Registration Stats</h4>
+            <div id="eventStats" class="event-stats">
+                <!-- Stats will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="modal">
+        <div class="modal-content admin-login-modal">
+            <span class="close-modal" onclick="closeAdminLogin()">&times;</span>
+            <h2>Admin Login</h2>
+            <form onsubmit="handleAdminLogin(event)">
+                <div class="form-group">
+                    <label for="adminUsername">Username</label>
+                    <input type="text" id="adminUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p style="margin-top: 1rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem;">
+                    Demo credentials - Username: <strong>admin</strong>, Password: <strong>password</strong>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2>✓ Registration Successful!</h2>
+            </div>
+            <div class="modal-body">
+                <p>Thank you for registering for the event. We look forward to seeing you there!</p>
+                <p id="confirmationDetails"></p>
+                <p>A confirmation email has been sent to <strong id="confirmationEmail"></strong></p>
+            </div>
+            <button class="btn btn-primary" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
