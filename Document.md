@@ -8,11 +8,7 @@ Contributors:
 
 1.	Jyothi Harshini M - 24A31A05GU
 
-2.	S Divyasri - 24A31A05HL
-
-3.	P Janaki - 24A31A05HI
-
-4.	PV Lalitha Mani - 24A31A05HF
+2.	G Tanusree - 24A31A05GS
 
 Abstract
 
